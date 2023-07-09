@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-tl from-my-blue to-my-green dark:from-my-dark-blue dark:to-my-dark-green scrollbar-hide h-screen;
+  }
+}
