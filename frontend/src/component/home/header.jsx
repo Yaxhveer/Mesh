@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import ThemeToggler from "../utils/themeToggler";
 import { useAuth } from "../context/authContext";
 import { logout } from "../../services/services";

@@ -1,10 +1,10 @@
 import Login from "./component/auth/login"
 import Register from "./component/auth/register"
-import Home from "./component/layout/home"
+import HomeLayout from "./component/home/homeLayout"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import ErrorMessage from "./component/utils/errorMessage"
 import { AuthProvider } from "./component/context/authContext"
-import Header from "./component/layout/header"
+import Header from "./component/home/header"
 import PrivateRoute from "./component/utils/privateRoute"
 import ProfileLayout from "./component/profile/profileLayout"
 import EditProfile from "./component/profile/editProfile"
@@ -30,7 +30,7 @@ function App() {
           } />
           <Route exact path="/" element={
             <PrivateRoute>
-              <Home />
+              <HomeLayout />
             </PrivateRoute> 
           } />
         </Routes>

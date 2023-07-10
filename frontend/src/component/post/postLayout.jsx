@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { commentPost, getComments, getUserData, likePost, unlikePost } from "../../services/services";
 import { useAuth } from "../context/authContext";
 import Comments from "./comments";
-import UserLayout from "../layout/userLayout";
+import UserLayout from "../home/userLayout";
 
 export default function PostLayout ({ postData, likedPost, handleDeletePost }) {
 

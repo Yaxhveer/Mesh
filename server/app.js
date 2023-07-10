@@ -13,6 +13,7 @@ import postRoute from './routes/post.js'
 import { createPost } from './controllers/post.js';
 import { editProfile } from './controllers/profile.js';
 import { verifyToken } from './middleware/verifyToken.js';
+import { body } from 'express-validator';
 
 dotenv.config();
 
@@ -42,8 +43,24 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-app.post('/post/create', verifyToken, upload.single("post"), createPost);
-app.post('/profile/edit', verifyToken, upload.single("avatar"), editProfile);
+app.post(
+  '/post/create', 
+  verifyToken, 
+  body("userID").notEmpty().withMessage("User id missing"), 
+  upload.single("post"), 
+  createPost
+);
+
+app.post(
+  '/profile/edit', 
+  verifyToken, 
+  body("userID").notEmpty().withMessage("User id missing"), 
+  body("userName").notEmpty().withMessage("Username missing"),
+  body("displayName").notEmpty().withMessage("Display name missing"),
+  upload.single("avatar"), 
+  editProfile
+);
+
 app.use('/auth', authRoute);
 app.use('/post', postRoute);
 app.use('/profile', profileRoute);

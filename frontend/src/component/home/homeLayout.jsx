@@ -1,12 +1,11 @@
 import { useAuth } from "../context/authContext";
-import PostLayout from "../post/postLayout";
 import { useEffect, useState } from "react";
 import UserLayout from "./userLayout";
 import { createPost, recommendation, following } from "../../services/services";
 import Feed from "./feed";
 import { useNavigate } from "react-router-dom";
 
-export default function Home () {
+export default function HomeLayout () {
 
     const [ loading, setLoading ] = useState(true);
     const [ userRecommendation, setUserRecommendation ] = useState();
@@ -73,8 +72,8 @@ export default function Home () {
 
                 <div className="flex flex-col gap-4 w-full sr:min-w-[280px] overflow-auto scrollbar-hide"> 
                     <div className="flex flex-col bg-slate-100 dark:bg-slate-800 p-4 rounded-lg gap-2 ">
-                        <div className="flex flex-row gap-4 pb-2 border-b border-slate-300 dark:border-slate-700">
-                            <div className="w-12 h-10 rounded-full">
+                        <div className="flex flex-row pb-2 border-b border-slate-300 dark:border-slate-700">
+                            <div className="w-16 h-10 rounded-full">
                                 { currUserInfo?.avatar ? 
                                     <img src= {`/api/${currUserInfo.avatar}`} className="w-10 h-10 object-contains rounded-full"/>
                                     : <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-10 h-10 dark:fill-white">
