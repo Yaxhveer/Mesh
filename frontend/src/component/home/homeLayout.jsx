@@ -62,7 +62,7 @@ export default function HomeLayout () {
                         userData={currUserInfo}
                     />
                     <div className="flex flex-col gap-2 text-sm text-slate-600 dark:text-slate-400 font-medium pl-1 border-t pt-2 border-slate-700 dark:border-slate-200">
-                        <div className="text-slate-800 dark:text-slate-200 text-xl">{currUserInfo?.about || "Yppp"}</div>
+                        <div className="text-slate-800 dark:text-slate-200 text-xl">{" " || currUserInfo?.about}</div>
                         <div className="flex flex-col gap-x-2 flex-wrap">
                             <div>{currUserInfo?.followers?.length} followers</div>
                             <div>{currUserInfo?.following?.length} following</div>

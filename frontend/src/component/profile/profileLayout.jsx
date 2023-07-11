@@ -106,7 +106,7 @@ export default function ProfileLayout () {
                         <div>{userData?.following.length} following</div>
                     </div>
                     <div>{userData?.display_name}</div>
-                    <div>{userData?.about}</div>
+                    <div>{" " || userData?.about}</div>
                 </div>
                 
                 <div className="text-gray-800 dark:text-gray-200 hover:bg-cyan-200 dark:hover:bg-gray-700 focus:outline-none rounded-full text-sm p-2.5">
