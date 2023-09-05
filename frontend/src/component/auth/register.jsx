@@ -4,6 +4,7 @@ import { register } from "../../services/services";
 import { useAuth } from "../context/authContext";
 
 export default function Register() {
+  const [ name, setName ] = useState("");
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
   const [ confirmPassword, setConfirmPassword ] = useState("");
@@ -26,7 +27,7 @@ export default function Register() {
       }
 
       setLoading(true);
-      const data = await register(email, password);
+      const data = await register(email, password, name);
       if (data?.done) {
         setCurrUser(data.user_id)
         console.log(data);
@@ -54,11 +55,22 @@ export default function Register() {
           <div className="rounded-md shadow-sm">
             <div>
               <input
+                id="name"
+                type="name"
+                autoComplete="name"
+                required
+                className="appearance-none w-full px-3 py-2 rounded-t-md placeholder-gray-500 bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:z-10 sm:text-sm"
+                placeholder="Name"
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+            <div>
+              <input
                 id="email-address"
                 type="email"
                 autoComplete="email"
                 required
-                className="appearance-none w-full px-3 py-2 rounded-t-md placeholder-gray-500 bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:z-10 sm:text-sm"
+                className="appearance-none w-full px-3 py-2 placeholder-gray-500 bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:z-10 sm:text-sm"
                 placeholder="Email address"
                 onChange={(e) => setEmail(e.target.value)}
               />

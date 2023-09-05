@@ -79,7 +79,7 @@ export default function PostLayout ({ postData, likedPost, handleDeletePost }) {
 
     return ( !loading &&
 
-        <div className="flex flex-col xs:p-4 py-2 px-4 w-full max-w-[300px] xs:gap-4 gap-2 bg-gray-300 dark:bg-gray-700 rounded-2xl h-min max-h-[560px]">
+        <div className="flex flex-col xs:p-4 py-2 px-4 w-full max-w-[300px] xs:gap-4 gap-2 bg-gray-100 dark:bg-gray-700 rounded-2xl h-min max-h-[560px]">
             <UserLayout 
                 userData={userData}
                 postID={postData?.post_id} 
@@ -90,7 +90,7 @@ export default function PostLayout ({ postData, likedPost, handleDeletePost }) {
             <div className="text-gray-800 dark:text-gray-200 hyphens-auto overflow-auto scrollbar-hide">
                 { postData?.about }
             </div>
-            <div className="">
+            <div className="flex justify-center">
                 <img src={`../api/${postData.post}`} className="object-scale-down"/>
             </div>
             <div className="flex flex-col gap-0.5 ">

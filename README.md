@@ -9,10 +9,10 @@ Social media app
 - Responsive design
 
 # Preview
-![Register](./ss/1.png)
-![Edit Profile](./ss/3.png)
-![Profile](./ss/4.png)
-![Home](./ss/5.png)
+![Register](./ss/S1.png)
+![Edit Profile](./ss/S2.png)
+![Profile](./ss/S3.png)
+![Home](./ss/S4.png)
 
 ## Local Setup
 - Clone the repository.

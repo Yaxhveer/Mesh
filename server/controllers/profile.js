@@ -119,7 +119,7 @@ export const recommendation = async (req, res) => {
     const { userID } = req.params;
     
     try {
-        const data = await pool.query('SELECT * from user_info where user_id not in (SELECT following_id from following where user_id = $1);', [userID]);
+        const data = await pool.query('SELECT * from user_info where user_id not in (SELECT following_id from following where user_id = $1 UNION SELECT $1);', [userID]);
         res.status(200).json({data: data.rows, done: 1});
     } catch (e) {
         console.log(e.message);

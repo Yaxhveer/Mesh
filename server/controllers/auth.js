@@ -20,11 +20,24 @@ const transporter = nodemailer.createTransport({
         pass: process.env.PASSCODE
     }});
 
-export const register = async (req, res) => {
-    const { email, password } = req.body;
-    const hash = await bcrypt.hash(password, 10);
-    const client = await pool.connect();
+const generateUserName = async(name) => {
+    let userName = name;
+    let number = 1;
+    let flag = 0;
+    while (flag) {
+        userName = userName + number++;
+        flag = await pool.query('SELECT EXISTS (SELECT from user_info where user_name = $1)', [name]);
+    }
+    console.log(userName);
+    return userName;
+}
 
+export const register = async (req, res) => {
+    const { email, password, name } = req.body;
+    const hash = await bcrypt.hash(password, 10);
+    const userName = await generateUserName(name);
+    const client = await pool.connect();
+    console.log(name);
     try {
         await client.query("BEGIN");
         const flag = await client.query('SELECT EXISTS (SELECT from users where email = $1)',[email]);
@@ -32,6 +45,7 @@ export const register = async (req, res) => {
         if(!flag.rows[0].exists){
 
             const user = await client.query('INSERT into users(email, password) values ($1, $2) RETURNING user_id;', [email, hash]);
+            await client.query('INSERT INTO user_info (user_id, user_name, display_name) VALUES ($1, $2, $3)', [user.rows[0].user_id, userName, name]);
             const token = generateAcessToken(user.rows[0].user_id);
 
             var mailOptions = { 

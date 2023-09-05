@@ -1,5 +1,6 @@
-export const register = async (email, password) => {
-    const user = {email: email, password: password};
+export const register = async (email, password, name) => {
+    const user = {email: email, password: password, name: name};
+    console.log(user);
     try {
         const res = await fetch (`/api/auth/register`, {
             method: "POST",

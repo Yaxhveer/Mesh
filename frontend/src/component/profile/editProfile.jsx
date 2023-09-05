@@ -77,12 +77,12 @@ export default function EditProfile () {
                         <div className="flex w-24 h-24 justify-center items-center dark:text-gray-950 text-gray-50 rounded-full">
                         {avatar ?
                             <img src={avatarSelected ? URL.createObjectURL(avatar) : `/api/${avatar}`} className="w-[78px] h-[78px] object-contains rounded-full"/>
-                            : <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="ss:w-24 ss:h-24 fill-white dark:fill-black rounded-full">
+                            : <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="ss:w-24 ss:h-24 dark:fill-white fill-black rounded-full">
                                     <path fillRule="evenodd" d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" clipRule="evenodd" />
                                 </svg>
                         }
                         </div> 
-                        <div className={"flex-row translate-x-[72px] w-min -translate-y-8 items-end text-xs dark:text-slate-800 text-slate-700 " + (edit ? "flex" : "hidden")}>
+                        <div className={"flex-row translate-x-[72px] w-min -translate-y-8 items-end text-xs dark:text-slate-300 text-slate-800 " + (edit ? "flex" : "hidden")}>
                             <label htmlFor="post" className="flex object-cover rounded-full">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
@@ -113,7 +113,7 @@ export default function EditProfile () {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col gap-4 pt-2 px-2 w-full max-w-xl">
+                <div className="flex flex-col gap-4 pt-2 px-2 w-full max-w-xl text-slate-900 dark:text-slate-100">
                     <div className="pl-1 md:text-4xl text-2xl font-semibold">
                         Account Details
                     </div>
